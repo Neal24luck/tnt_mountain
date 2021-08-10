@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://screens/combat/Combat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://screens/exploration/Exploration.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0703125, 0.0703125, 0.0703125, 0 ), Color( 0.0703125, 0.0703125, 0.0703125, 1 ) ]
+}
+
+[node name="Game" type="Node"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 1 )
+
+[node name="Transition" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -23.9998
+margin_top = 19.2661
+margin_right = -23.9998
+margin_bottom = 19.2661
+mouse_filter = 1
+color = Color( 0.0703125, 0.0703125, 0.0703125, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Combat" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 29.9662, 119.865 )
+
+[node name="Exploration" parent="." instance=ExtResource( 3 )]
+position = Vector2( 26.9087, 137.455 )
